@@ -10,7 +10,7 @@ var renderCloud = function (ctx, x, y, color) {
 
 var getArrayMaxElementIndex = function (array) {
 
-  var max = -1
+  var max = -1;
   for (var i = 0; i < array.length; i++) {
     max = Math.max(array[i], max);
   }
