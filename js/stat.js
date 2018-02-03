@@ -42,10 +42,18 @@ window.renderStatistics = function (ctx, names, times) {
 
     var columnHeight = times[i] * step;
 
-    ctx.fillStyle = 'rgba(0, 0, 255, ' + Math.random() + ')';
     if (names[i] === 'Вы') {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
+    } else {
+      ctx.fillStyle = 'rgba(0, 0, 255, ' + Math.random() + ')';
     }
+
     ctx.fillRect(initialX + (columnWidth + indent) * i, cloudHeight - columnHeight - initialY, columnWidth, columnHeight);
+
+    ctx.fillStyle = 'rgba(0, 0, 0, 1)';
+    ctx.fillText(times[i].toFixed(), initialX + (columnWidth + indent) * i, cloudHeight - columnHeight - initialY - 5);
+
+    ctx.fillStyle = 'rgba(0, 0, 0, 1)';
+    ctx.fillText(names[i], initialX + (columnWidth + indent) * i, cloudHeight);
   }
 };
