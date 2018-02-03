@@ -26,12 +26,14 @@ var renderCloud = function (ctx, startX, startY, endX, endY, color) {
   ctx.fillStyle = color;
   ctx.fillRect(startX, startY, endX, endY);
 };
+
 /**
  * Поиск максимального значения массива
  * @constructor
  * @param array - массив.
  * @returns {number} max - возврвщает максимальный элемент массива.
  */
+
 var getMaxElementArray = function (array) {
   var max = -1;
   for (var i = 0; i < array.length; i++) {
