@@ -30,8 +30,8 @@ var renderCloud = function (ctx, startX, startY, endX, endY, color) {
 /**
  * Поиск максимального значения массива
  * @constructor
- * @param array - массив.
- * @returns {number} max - возврвщает максимальный элемент массива.
+ * @param {number} array - массив.
+ * @return {number} max - возврвщает максимальный элемент массива.
  */
 
 var getMaxElementArray = function (array) {
