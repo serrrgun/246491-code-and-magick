@@ -1,12 +1,16 @@
 'use strict';
 
-var CLOUD_WIDTH = 420;
-var CLOUD_HEIGHT = 270;
+var CLOUD_WIDTH_START = 110;
+var CLOUD_HEIGHT_START = 20;
+var CLOUD_WIDTH_END = 420;
+var CLOUD_HEIGHT_END = 270;
+var INDENT_SHADOW = 10;
+var INDENT_TIME = 5;
+var HISTOGRAMHEIGHT = 150;
 
-
-var renderCloud = function (ctx, x, y, color) {
+var renderCloud = function (ctx, startX, startY, endX, endY, color) {
   ctx.fillStyle = color;
-  ctx.fillRect(x, y, CLOUD_WIDTH, CLOUD_HEIGHT);
+  ctx.fillRect(startX, startY, endX, endY);
 };
 
 var getMaxElementArray = function (array) {
@@ -18,8 +22,8 @@ var getMaxElementArray = function (array) {
 };
 
 window.renderStatistics = function (ctx, names, times) {
-  renderCloud(ctx, 110, 20, 'rgba(0, 0, 0, 0.7)');
-  renderCloud(ctx, 100, 10, '#fff');
+  renderCloud(ctx, CLOUD_WIDTH_START, CLOUD_HEIGHT_START, CLOUD_WIDTH_END, CLOUD_HEIGHT_END, 'rgba(0, 0, 0, 0.7)');
+  renderCloud(ctx, CLOUD_WIDTH_START - INDENT_SHADOW, CLOUD_HEIGHT_START - INDENT_SHADOW, CLOUD_WIDTH_END, CLOUD_HEIGHT_END, '#fff');
 
   ctx.fillStyle = '#000000';
   ctx.font = '16px PT Mono';
@@ -29,13 +33,12 @@ window.renderStatistics = function (ctx, names, times) {
 
   var max = getMaxElementArray(times);
 
-  var histogramHeight = 150;
-  var step = histogramHeight / max;
+  var step = HISTOGRAMHEIGHT / max;
 
   var columnWidth = 40;
   var cloudHeight = 270;
-  var initialY = 20;
   var initialX = 130;
+  var initialY = 20;
   var indent = 50;
 
   for (var i = 0; i < names.length; i++) {
@@ -51,7 +54,7 @@ window.renderStatistics = function (ctx, names, times) {
     ctx.fillRect(initialX + (columnWidth + indent) * i, cloudHeight - columnHeight - initialY, columnWidth, columnHeight);
 
     ctx.fillStyle = 'rgba(0, 0, 0, 1)';
-    ctx.fillText(times[i].toFixed(), initialX + (columnWidth + indent) * i, cloudHeight - columnHeight - initialY - 5);
+    ctx.fillText(times[i].toFixed(), initialX + (columnWidth + indent) * i, cloudHeight - columnHeight - initialY - INDENT_TIME);
 
     ctx.fillStyle = 'rgba(0, 0, 0, 1)';
     ctx.fillText(names[i], initialX + (columnWidth + indent) * i, cloudHeight);
