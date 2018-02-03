@@ -7,12 +7,31 @@ var CLOUD_HEIGHT_END = 270;
 var INDENT_SHADOW = 10;
 var INDENT_TIME = 5;
 var HISTOGRAMHEIGHT = 150;
+var TEXT_START_X = 130;
+var TEXT_START_Y = 40;
+var HEIGHT_STROKE = 20;
+
+/**
+ * Рендерит облако с тенью
+ * @constructor
+ * @param ctx
+ * @param {number} startX - начало облака по x.
+ * @param {number} startY - начало облака по Y.
+ * @param {number} endX - конец облака по x.
+ * @param {number} endY - конец облака по Y.
+ * @param {number} color - цвет.
+ */
 
 var renderCloud = function (ctx, startX, startY, endX, endY, color) {
   ctx.fillStyle = color;
   ctx.fillRect(startX, startY, endX, endY);
 };
-
+/**
+ * Поиск максимального значения массива
+ * @constructor
+ * @param array - массив.
+ * @returns {number} max - возврвщает максимальный элемент массива.
+ */
 var getMaxElementArray = function (array) {
   var max = -1;
   for (var i = 0; i < array.length; i++) {
@@ -28,8 +47,8 @@ window.renderStatistics = function (ctx, names, times) {
   ctx.fillStyle = '#000000';
   ctx.font = '16px PT Mono';
 
-  ctx.fillText('Ура, вы победили!', 130, 40);
-  ctx.fillText('Список результатов:', 130, 60);
+  ctx.fillText('Ура, вы победили!', TEXT_START_X, TEXT_START_Y);
+  ctx.fillText('Список результатов:', TEXT_START_X, TEXT_START_Y + HEIGHT_STROKE);
 
   var max = getMaxElementArray(times);
 
