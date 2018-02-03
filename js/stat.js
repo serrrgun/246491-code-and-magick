@@ -3,13 +3,13 @@
 var CLOUD_WIDTH = 420;
 var CLOUD_HEIGHT = 270;
 
+
 var renderCloud = function (ctx, x, y, color) {
   ctx.fillStyle = color;
   ctx.fillRect(x, y, CLOUD_WIDTH, CLOUD_HEIGHT);
 };
 
-var getArrayMaxElementIndex = function (array) {
-
+var getMaxElementArray = function (array) {
   var max = -1;
   for (var i = 0; i < array.length; i++) {
     max = Math.max(array[i], max);
@@ -27,7 +27,7 @@ window.renderStatistics = function (ctx, names, times) {
   ctx.fillText('Ура, вы победили!', 130, 40);
   ctx.fillText('Список результатов:', 130, 60);
 
-  var max = getArrayMaxElementIndex(times);
+  var max = getMaxElementArray(times);
 
   var histogramHeight = 150;
   var step = histogramHeight / max;
