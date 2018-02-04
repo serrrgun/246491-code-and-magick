@@ -13,13 +13,12 @@ var HEIGHT_STROKE = 20;
 
 /**
  * Рендерит облако с тенью
- * @constructor
  * @param ctx
  * @param {number} startX - начало облака по x.
  * @param {number} startY - начало облака по Y.
  * @param {number} endX - конец облака по x.
  * @param {number} endY - конец облака по Y.
- * @param {number} color - цвет.
+ * @param {number} color - цвет тени(rgba(0, 0, 0, 0.7), цвет облака(#fff).
  */
 
 var renderCloud = function (ctx, startX, startY, endX, endY, color) {
@@ -29,8 +28,7 @@ var renderCloud = function (ctx, startX, startY, endX, endY, color) {
 
 /**
  * Поиск максимального значения массива
- * @constructor
- * @param {number} array - массив.
+ * @param {Array} array - массив.
  * @return {number} max - возврвщает максимальный элемент массива.
  */
 
