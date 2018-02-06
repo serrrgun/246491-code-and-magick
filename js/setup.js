@@ -27,8 +27,8 @@ var getRandomElement = function (array) {
 };
 
 /**
- * Возвращает объект со случайными характеристиками мага
- * @param {Object} paramsWizard - объект с параметрами мага.
+ * Возвращает объект со случайными характеристиками волшебника
+ * @param {Object} paramsWizard - объект с параметрами волшебника.
  * @return {{name: string, coatColor: string, eyesColor: string}} {Object}
  */
 var getGenerateRandomWizard = function (paramsWizard) {
@@ -41,9 +41,9 @@ var getGenerateRandomWizard = function (paramsWizard) {
 };
 
 /**
- * Генерирует массив объектов случайных магов
- * @param {number} quantityWizards - количество магов в массиве
- * @return {Array} ArrayWizards - массив с магами
+ * Генерирует массив объектов случайных волшебников
+ * @param {number} quantityWizards - количество волшебников в массиве
+ * @return {Array} ArrayWizards - массив с волшебниками
  */
 var generateArrayRandomWizards = function (quantityWizards) {
   var arrayWizards = [];
@@ -57,8 +57,8 @@ var generateArrayRandomWizards = function (quantityWizards) {
 var wizards = generateArrayRandomWizards(4);
 
 /**
- * Создает копию узла с шаблоном параметров мага
- * @param {Object} wizard Объект с паваметрами мага
+ * Создает копию узла с шаблоном параметров волшебника
+ * @param {Object} wizard Объект с паваметрами волшебника
  * @return {Object} Объект мага с заполненными данными
  */
 var createTemlateWizard = function (wizard) {
